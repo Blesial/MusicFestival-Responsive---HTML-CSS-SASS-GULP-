@@ -1,0 +1,47 @@
+// @mixin heading {
+//     text-transform: uppercase;
+//     font-size: 2.4rem;
+//     color: black;
+//     letter-spacing: 1px;
+// }
+@use 'variables' as v;
+
+@mixin telefono {
+    @media (min-width: v.$telefono) {
+        @content; // hace q todo lo q le pases entre las llaves donde usas el mixin lo reemplaza por el content. es cuando no sabes ctas lineas vas a meter dentro. 
+    }
+}
+
+@mixin tablet {
+    @media (min-width: v.$tablet) {
+        @content;
+
+    }
+}
+
+@mixin desktop {
+    @media (min-width: v.$desktop) {
+        @content;
+
+    }
+}
+
+@mixin desktopXL {
+    @media (min-width: v.$desktopXL) {
+        @content;
+
+    }
+}
+
+@mixin grid {
+    display: grid; // vamos a tener 2 columnas cuando sea dispositivo mas grande. pero en uno pequenio va a ser 1 solo;
+    grid-template-columns: repeat(2, 1fr); // significa q voy a tener 2 columnas de 1 fraccion
+    gap: 5rem; // distnacia entre 2 columnas // envez de ahcer column-gap es mejor meter gap solo. x si alguien mete muchas columnas 
+} 
+
+@mixin reset-lista { // para resetear <li>
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+}

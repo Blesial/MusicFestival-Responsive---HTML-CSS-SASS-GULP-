@@ -1,0 +1,55 @@
+@use 'variables' as v;
+
+html {
+    font-size: 62.5%; //establece la fuente base para todo el doc html. hace que 1rem = 10px. simplifca mucho la conversion rem a px
+    box-sizing: border-box;
+}
+// hace q el padding no sea un problema!! asegura que todos los elementos en la página, así como sus pseudo-elementos before y after, hereden la propiedad box-sizing establecida en la hoja de estilo, de manera que se aplique a todos ellos y se eviten problemas de alineación y dimensionamiento inesperados.
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: v.$fuente_principal;
+    font-size: 1.6rem; // fuente base para enlaces y todos los elementos.
+}
+
+p {
+    font-size: 2rem;
+    color: v.$negro;
+    line-height: 2;
+
+}
+
+.contenedor {
+    width: 95%;
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1,h2,h3 {
+    margin: 0 0 5rem 0
+}
+
+h1 {
+    font-size: 4rem;
+}
+h2 {
+    font-size: 3.6rem;
+}
+h3 {
+    font-size: 3rem;
+}
+img { // asi la imagen ponele de contenido-festival. se va a ajustar a su grid. 
+    max-width: 100%;
+    display: block;
+}
+// .header {
+//     background-color: v.$verde;
+// }

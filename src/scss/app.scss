@@ -1,0 +1,11 @@
+// variables en sass es con $
+//@import 'base/variables'; // al usar @import, las vriables van a estar disponibles en TODOS los archivos (pero traia problemas de performance) . importante. FORMA VIEJA 
+// @import 'contenido/contenido';
+ // FORMA NUEVA
+ 
+ // el @use crea instancias locales. no globales. PRINCIPAL DIF CON LA FORMA VIEJA. Y MAS PRECISAMENTE CON EL @IMPORT 
+@use 'base';
+@use 'layout';
+
+
+

@@ -1,0 +1,6 @@
+// PARA LA FORMA NUEVA DE SCSS.
+//IMPORTANCIA DEL ORDEN: 
+@forward 'variables'; 
+@forward 'normalize'; //pre-set
+@forward 'globales'; // font size, box sizing etc. 
+@forward 'mixins';

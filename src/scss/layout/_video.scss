@@ -1,0 +1,44 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.video { // hace q el texto se encime sobre el video
+    position: relative;
+    max-height: 70rem; // si hacemos esto unicamente, el overlay se va a quedar corto y el video continua siendo mas alto. se soluciona con OVERFLOW
+    min-height: 50rem;
+    overflow: hidden; // hace q no se vea la parte inferior. hace q no crezca mucho hacia abajo el video digamos. 
+    .overlay{
+        position: absolute;
+        background: rgb(131,3,203);
+        background: linear-gradient(270deg, rgba(131,3,203,0.5) 0%, rgba(255,0,110,0.3) 100%);        height: 100%;
+        width: 100%;
+        display: flex; // el flex y display es para que nos permita luego alinear verticalmente el contenido. ya que por dfault es solo horizontalmente
+        flex-direction: column;
+        justify-content: center; // entonces esto ahora hace q lo alinee verticalmente !
+    }
+    video {
+        width: auto;
+        display: block; // los videos al igual q las imagnes tienen q tener el display block asi nos liberamos de los desbordes. es para q tome todo el espacio hacia abajo
+        @include m.desktop { // hace q fluya correctamente
+            width: 100%
+        }
+    }
+}
+
+.contenido-video {
+    z-index: 10; // CLAVE: SI ESTO NO ESTARIA. EL TEXTO NO PODRIA SELECCIONARSE YA Q ESTA COMO ABAJO" DEL VIDEO. ENTONCES CON ESTO HACES Q SE PONGA ARRIBA D TODO.
+    h2{
+        color: v.$blanco;
+        font-size: 7rem;
+        margin: 0
+    }
+
+    p{
+        background-color: v.$rosa; // recorda por default los parrafos agarran todo el ancho disponible 
+        display: inline-block; // con esto hace que ocupe el lugar q necesita nomas. y el block hace que si hay mas elementos debajo no se pongan a su derecha.
+        color: v.$blanco;
+        padding: 1rem 2rem;
+        font-weight: 700px;
+        font-size: 2.4rem;
+        margin: 0;
+    }
+}
